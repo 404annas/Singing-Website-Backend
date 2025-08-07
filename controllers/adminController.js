@@ -14,7 +14,7 @@ export const registerAdmin = async (req, res) => {
 
     const existingAdmin = await Admin.findOne({ username });
     if (existingAdmin) {
-      return res.status(400).json({ message: "Admin Username already exists" });
+      return res.status(400).json({ message: "Admin already exists" });
     }
 
     const admin = new Admin({ username, password });
@@ -49,7 +49,7 @@ export const loginAdmin = async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, admin.password);
     if (!isMatch) {
-      return res.status(401).json({ message: "Invalid Ssername or Password" });
+      return res.status(401).json({ message: "Invalid Username or Password" });
     }
 
     const token = jwt.sign(

@@ -12,7 +12,7 @@ const artistSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: ["Male", "Female", "Qawal"]
+        enum: ["Male", "Female", "Qawal", "Bhangra"]
     }
 }, { timestamps: true })
 
